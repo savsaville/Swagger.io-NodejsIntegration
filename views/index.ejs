@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+
+    <form action="/" method="post">
+      <input type="text" name="ingredient_name">
+      <input type="submit">
+    </form>
+
+    <ul>
+      <% washmachines.forEach(washmachine => { %>
+        <li> <%= washmachine.name %> <%= washmachine.size %> <%= washmachine.cycles %>
+       <% }) %>
+    </ul>
+  </body>
+</html>

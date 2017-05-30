@@ -10,9 +10,22 @@ var users = require('./routes/users');
 
 var app = express();
 
+
+var mongoose = require('mongoose');
+// mongoose.Promise = global.Promise;
+// database is called washywashy
+mongoose.connect('127.0.0.1:27017/washywashy')
+
+const { connection: db } = mongoose;
+
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', () => {
+  console.log('connected to recipe washywashy')
+});
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
