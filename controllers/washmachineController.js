@@ -54,6 +54,15 @@ exports.editWashmachines = (req, res) => {
       res.render('editWashmachine', {washmachine: washmachine});
     })
 };
+
+exports.getWashmachineApi = (req, res) => {
+  Washmachine.findOne({ _id: req.params.id })
+    .then(washmachine => {
+      res.json(washmachine);
+    })
+};
+
+
 exports.updateWashmachines = (req, res) => {
   Washmachine.findOneAndUpdate({ _id: req.params.id }, req.body, {
     new: true //returns new washmachine
@@ -62,3 +71,33 @@ exports.updateWashmachines = (req, res) => {
         res.redirect('/')
       })
 }
+
+exports.updateApiWashmachines = (req, res) => {
+  Washmachine.findOneAndUpdate({ _id: req.params.id }, req.query, {
+    new: true //returns new washmachine
+  })
+      .then(washmachine => {
+        res.redirect(`/api/${req.params.id}`)
+      })
+}
+
+exports.deleteWashmachines = (req, res) => {
+	Washmachine.findByIdAndRemove({_id: req.params.id},
+	   function(err){
+		if(err) res.json(err);
+		else    res.redirect('/');
+	});
+};
+
+exports.deleteWashmachineApi = function(req, res){
+	Washmachine.findByIdAndRemove({_id: req.params.id},
+	   function(err){
+		if(err) res.json(err);
+		else {
+      Washmachine.find()
+        .then(washmachine => {
+          res.json(washmachine)
+        })
+    };
+	});
+};
