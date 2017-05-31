@@ -10,11 +10,11 @@ var users = require('./routes/users');
 
 var app = express();
 
-
+const mlabpassword = process.env.WASHYPASSWORD
 var mongoose = require('mongoose');
-mongoose.Promise = global.Promise;
+// mongoose.Promise = global.Promise;
 // database is called washywashy
-mongoose.connect('127.0.0.1:27017/washywashy')
+mongoose.connect(`mongodb://nickbibby:${mlabpassword}@ds157631.mlab.com:57631/washywashywashy`)
 
 const { connection: db } = mongoose;
 
