@@ -8,11 +8,20 @@
     <h1>Liquid Laundromats</h1>
     <p>Welcome to home of low cost washing machines in dodgy places</p>
 
+    <form action="/" method="post">
+      <input type="text" name="washmachine_name">
+      <input type="text" name="washmachine_size">
+      <input type="number" name="washmachine_cycles">
+      <input type="submit">
+    </form>
+
     <ul>
       <% washmachines.forEach(washmachine => { %>
         <li> Name:<%= washmachine.name %>
              Size:<%= washmachine.size %>
              Cycles per day:<%= washmachine.cycles %>
+             <a href="/washmachines/<%=washmachine._id%>/edit">Edit</a>
+             <a href="/washmachine/<%= washmachine._id %>/delete">Delete</a></li>
        <% }) %>
     </ul>
   </body>
