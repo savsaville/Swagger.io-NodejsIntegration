@@ -5,17 +5,14 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-
-    <form action="/" method="post">
-      <input type="text" name="ingredient_name">
-      <input type="submit">
-    </form>
+    <h1>Liquid Laundromats</h1>
+    <p>Welcome to home of low cost washing machines in dodgy places</p>
 
     <ul>
       <% washmachines.forEach(washmachine => { %>
-        <li> <%= washmachine.name %> <%= washmachine.size %> <%= washmachine.cycles %>
+        <li> Name:<%= washmachine.name %>
+             Size:<%= washmachine.size %>
+             Cycles per day:<%= washmachine.cycles %>
        <% }) %>
     </ul>
   </body>

@@ -12,7 +12,7 @@ var app = express();
 
 
 var mongoose = require('mongoose');
-// mongoose.Promise = global.Promise;
+mongoose.Promise = global.Promise;
 // database is called washywashy
 mongoose.connect('127.0.0.1:27017/washywashy')
 

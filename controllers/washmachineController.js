@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Washmachine = require('../models/Washmachine');
 
-exports.getWashmachine = (req, res) => {
+exports.getWashmachines = (req, res) => {
 Washmachine.find()
   .then((washmachines) => {
     res.render('index', {
