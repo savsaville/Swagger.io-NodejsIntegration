@@ -38,7 +38,7 @@ exports.createApiWashmachines = (req, res) => {
 const name = req.query.name;
 const cycles = req.query.cycles;
 const size = req.query.size;
-let washmachine = new Ingredient();
+let washmachine = new Washmachine();
 washmachine.name = name;
 washmachine.cycles = cycles;
 washmachine.size = size;
@@ -47,3 +47,18 @@ washmachine.save()
     res.json(washmachine)
   })
 };
+
+exports.editWashmachines = (req, res) => {
+  Washmachine.findOne({ _id: req.params.id })
+    .then(washmachine => {
+      res.render('editWashmachine', {washmachine: washmachine});
+    })
+};
+exports.updateWashmachines = (req, res) => {
+  Washmachine.findOneAndUpdate({ _id: req.params.id }, req.body, {
+    new: true //returns new washmachine
+  })
+      .then(washmachine => {
+        res.redirect('/')
+      })
+}

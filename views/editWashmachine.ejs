@@ -1,0 +1,10 @@
+<form action="/washmachines/<%= washmachine._id %>/edit" method="post">
+  <input type="text" name="name" value="<%= washmachine.name %>">
+  <input type="text" name="size" value="<%= washmachine.size %>">
+  <input type="number" name="cycles" value="<%= washmachine.cycles %>">
+  <input type="submit">
+</form>
+
+<%= washmachine.name %>
+<%= washmachine.cycles %>
+<%= washmachine.size %>

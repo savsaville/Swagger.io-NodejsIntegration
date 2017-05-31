@@ -10,6 +10,11 @@ router.get('/api', washmachineController.getApiWashmachines);
 router.post('/', washmachineController.createWashmachines);
 router.post('/api', washmachineController.createApiWashmachines);
 
+router.get('/washmachines/:id/edit', washmachineController.editWashmachines);
+
+
+router.post('/washmachines/:id/edit', washmachineController.updateWashmachines);
+
 
 
 
