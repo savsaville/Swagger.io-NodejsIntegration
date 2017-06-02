@@ -24,10 +24,14 @@ exports.createWashmachines = (req, res) => {
 const name = req.body.washmachine_name;
 const cycles = req.body.washmachine_cycles;
 const size = req.body.washmachine_size;
+const powerConsumption = req.body.washmachine_powerConsumption;
+const location = req.body.washmachine_location;
 let washmachine = new Washmachine();
 washmachine.name = name;
 washmachine.cycles = cycles;
 washmachine.size = size;
+washmachine.powerConsumption = powerConsumption;
+washmachine.location = location;
 washmachine.save()
   .then(() => {
     res.redirect('/')
