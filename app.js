@@ -9,6 +9,7 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
+app.use(cors());
 
 const mlabpassword = process.env.WASHYPASSWORD
 var mongoose = require('mongoose');
