@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 //destructuring
 const { Schema } = mongoose;
+const Washmachine = require('./Washmachine')
 
 const locationDetailsSchema = new Schema ({
   locationName: {
@@ -25,7 +26,7 @@ const locationDetailsSchema = new Schema ({
 
 const LocationDetails = mongoose.model('LocationDetails', locationDetailsSchema);
 
-const Washmachine = mongoose.model('Washmachine', washmachineSchema);
+// const Washmachine = mongoose.model('Washmachine', washmachineSchema);
 
 
 module.exports = LocationDetails;

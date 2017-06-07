@@ -9,7 +9,7 @@
     <p>Welcome to home of low cost washing machines in dodgy places</p>
 
     <form action="/" method="post">
-      <input type="text" name="washmachine_name">
+      <input type="text" name="washmachine_machineName">
       <input type="text" name="washmachine_size">
       <input type="number" name="washmachine_cycles">
       <input type="number" name="washmachine_powerConsumption">
@@ -19,31 +19,13 @@
 
     <ul>
       <% washmachines.forEach(washmachine => { %>
-        <li> Name:<%= washmachine.name %>
+        <li> Name:<%= washmachine.machineName %>
              Size:<%= washmachine.size %>
              Cycles per day:<%= washmachine.cycles %>
              powerConsumption: <%= washmachine.powerConsumption %>
              location: <%= washmachine.location %>
-             <a href="/washmachines/<%=washmachine._id%>/edit">Edit</a>
-             <a href="/washmachine/<%= washmachine._id %>/delete">Delete</a></li>
-       <% }) %>
-    </ul>
-    <form action="/" method="post">
-      <input type="text" name="washmachine_name">
-      <input type="text" name="washmachine_size">
-      <input type="number" name="washmachine_cycles">
-      <input type="number" name="washmachine_powerConsumption">
-      <input type="string" name="washmachine_location">
-      <input type="submit">
-    </form>
-
-    <ul>
-      <% washmachines.forEach(washmachine => { %>
-        <li> Name:<%= washmachine.name %>
-             Size:<%= washmachine.size %>
-             Cycles per day:<%= washmachine.cycles %>
-             powerConsumption: <%= washmachine.powerConsumption %>
-             location: <%= washmachine.location %>
+             %>
+             DateAdded: <%= washmachine.createdAt%>
              <a href="/washmachines/<%=washmachine._id%>/edit">Edit</a>
              <a href="/washmachine/<%= washmachine._id %>/delete">Delete</a></li>
        <% }) %>

@@ -21,17 +21,19 @@ Washmachine.find()
 };
 
 exports.createWashmachines = (req, res) => {
-const name = req.body.washmachine_name;
+const machineName = req.body.washmachine_machineName;
 const cycles = req.body.washmachine_cycles;
 const size = req.body.washmachine_size;
 const powerConsumption = req.body.washmachine_powerConsumption;
 const location = req.body.washmachine_location;
+const createdAt = req.body.washmachine_createdAt;
 let washmachine = new Washmachine();
-washmachine.name = name;
+washmachine.machineName = machineName;
 washmachine.cycles = cycles;
 washmachine.size = size;
 washmachine.powerConsumption = powerConsumption;
 washmachine.location = location;
+washmachine.createdAt = createdAt;
 washmachine.save()
   .then(() => {
     res.redirect('/')
@@ -39,13 +41,16 @@ washmachine.save()
 };
 
 exports.createApiWashmachines = (req, res) => {
-const name = req.query.name;
+const machineName = req.query.machineName;
 const cycles = req.query.cycles;
 const size = req.query.size;
 let washmachine = new Washmachine();
-washmachine.name = name;
+washmachine.machineName = machineName;
 washmachine.cycles = cycles;
 washmachine.size = size;
+washmachine.powerConsumption = powerConsumption;
+washmachine.location = location;
+washmachine.createdAt = createdAt;
 washmachine.save()
   .then(() => {
     res.json(washmachine)
