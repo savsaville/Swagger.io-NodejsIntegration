@@ -11,12 +11,12 @@ Washmachine.find()
   })
 };
 
-exports.getApiWashmachines = (req, res) => {
-Washmachine.find()
-  .then((washmachines) => {
-    res.json(washmachines)
-  })
-};
+// exports.getApiWashmachines = (req, res) => {
+// Washmachine.find()
+//   .then((washmachines) => {
+//     res.json(washmachines)
+//   })
+// };
 
 exports.createWashmachines = (req, res) => {
 const machineName = req.body.washmachine_machineName;
@@ -38,22 +38,6 @@ washmachine.save()
   })
 };
 
-exports.createApiWashmachines = (req, res) => {
-const machineName = req.query.machineName;
-const cycles = req.query.cycles;
-const size = req.query.size;
-let washmachine = new Washmachine();
-washmachine.machineName = machineName;
-washmachine.cycles = cycles;
-washmachine.size = size;
-washmachine.powerConsumption = powerConsumption;
-washmachine.location = location;
-washmachine.createdAt = createdAt;
-washmachine.save()
-  .then(() => {
-    res.json(washmachine)
-  })
-};
 
 exports.editWashmachines = (req, res) => {
   Washmachine.findOne({ _id: req.params.id })

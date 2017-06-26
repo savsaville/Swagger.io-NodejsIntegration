@@ -1,6 +1,6 @@
 {
   "name": "washywashy",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
@@ -8,13 +8,21 @@
   },
   "dependencies": {
     "body-parser": "~1.17.1",
+    "chokidar": "^1.7.0",
+    "commander": "^2.10.0",
     "cookie-parser": "~1.4.3",
     "cors": "^2.8.3",
     "debug": "~2.6.3",
+    "doctrine": "^2.0.0",
     "ejs": "~2.5.6",
     "express": "~4.15.2",
+    "glob": "^7.1.2",
+    "js-yaml": "^3.8.4",
     "mongoose": "^4.9.8",
     "morgan": "~1.8.1",
-    "serve-favicon": "~2.4.2"
+    "recursive-iterator": "^2.0.3",
+    "serve-favicon": "~2.4.2",
+    "swagger-jsdoc": "^1.9.5",
+    "swagger-parser": "^3.4.1"
   }
 }
