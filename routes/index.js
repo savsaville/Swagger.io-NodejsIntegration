@@ -11,8 +11,8 @@ const washmachineController = require('../controllers/washmachineController');
    *     tags: [washmachine]
    *     description: Lists washingmachines
    *     responses:
-   *       400:
-   *         description: Success
+   *       200:
+   *         description: You can see the machines
    */
 
 router.get('/api', (req, res) => {
@@ -94,7 +94,7 @@ Washmachine.find()
    *         format: date
    *     responses:
    *       200:
-   *         description: success
+   *         description: Successfully added Machine
    *         schema:
    *           type: object
    *           $ref: '#/definitions/washmachine'
@@ -103,12 +103,15 @@ Washmachine.find()
 
 
 router.post('/api', (req, res) => {
-const machineName = req.query.machineName;
-const cycles = req.query.cycles;
-const size = req.query.size;
-const powerConsumption = req.query.powerConsumption;
-const location = req.query.location;
-const createdAt = req.query.createdAt;
+  const {
+    machineName,
+    cycles,
+    size,
+    powerConsumption,
+    location,
+    createdAt
+  }
+ = req.query;
 let washmachine = new Washmachine();
 washmachine.machineName = machineName;
 washmachine.cycles = cycles;
@@ -138,8 +141,10 @@ washmachine.save()
    *        required: true
    *        type: string
    *     responses:
+   *       200:
+   *         description: Deleted Machine
    *       400:
-   *         description: Success
+   *         description: Invalid Error
    */
 
 
@@ -157,9 +162,6 @@ router.delete('/api/washmachines/:id',function(req, res){
 	});
 });
 
-// router.get('/api', washmachineController.getApiWashmachines);
-
-// router.post('/api', washmachineController.createApiWashmachines);
 
 router.get('/washmachines/:id/edit', washmachineController.editWashmachines);
 router.get('/api/:id', washmachineController.getWashmachineApi);
