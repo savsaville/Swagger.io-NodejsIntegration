@@ -103,12 +103,15 @@ Washmachine.find()
 
 
 router.post('/api', (req, res) => {
-const machineName = req.query.machineName;
-const cycles = req.query.cycles;
-const size = req.query.size;
-const powerConsumption = req.query.powerConsumption;
-const location = req.query.location;
-const createdAt = req.query.createdAt;
+  const {
+    machineName,
+    cycles,
+    size,
+    powerConsumption,
+    location,
+    createdAt
+  }
+ = req.query;
 let washmachine = new Washmachine();
 washmachine.machineName = machineName;
 washmachine.cycles = cycles;
@@ -157,19 +160,6 @@ router.delete('/api/washmachines/:id',function(req, res){
 	});
 });
 
-// router.get('/api', washmachineController.getApiWashmachines);
-
-// router.post('/api', washmachineController.createApiWashmachines);
-
-router.get('/washmachines/:id/edit', washmachineController.editWashmachines);
-router.get('/api/:id', washmachineController.getWashmachineApi);
-
-
-router.post('/washmachines/:id/edit', washmachineController.updateWashmachines);
-router.post('/api/:id/edit', washmachineController.updateApiWashmachines);
-
-
-router.get('/washmachine/:id/delete', washmachineController.deleteWashmachines);
 
 
 
