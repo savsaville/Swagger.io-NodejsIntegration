@@ -9,7 +9,7 @@ $ npm install swagger-jsdoc --save
 ```
 var swaggerJSDoc = require('swagger-jsdoc');
 ```
-3. Add spec-skeleton to app.js. This sets up the route "/api-docs.json" which automatically updates when the annoted routes and models are updates. The contents in this route can then be pasted into the Swagger.io editor to generate the interactive document.
+3. Add spec-skeleton to app.js. This sets up the route "/api-docs.json" which automatically updates when the annotated routes and models are updates. The contents in this route can then be copy and pasted into the Swagger.io editor to generate the interactive document.
 ```
 // Swagger definition
 // You can set every attribute except paths and swagger
@@ -43,7 +43,7 @@ app.get('/api-docs.json', function(req, res) {
 ```
 
 4. Annotate routes. Here are some examples of annotated routes.
-Be sure to add "-in" type acording to your request. It may be body, query or param.
+Be sure to add "-in" type according to your request. It may be body, query or param.
 ```
 /**
    * @swagger
