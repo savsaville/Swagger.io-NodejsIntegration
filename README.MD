@@ -9,8 +9,8 @@ $ npm install swagger-jsdoc --save
 ```
 var swaggerJSDoc = require('swagger-jsdoc');
 ```
-3. Add spec-skeleton to app.js. This sets up the route "/api-docs.json" which automatically updates when the annotated routes and models are updates. The contents in this route can then be copy and pasted into the Swagger.io editor to generate the interactive document.
-```
+3. Add spec-skeleton to app.js. This sets up the route "/api-docs.json" which automatically updates when the annotated routes and models are updated. The contents in this route can then be copy and pasted into the Swagger.io editor to generate the interactive document. Please note, the "automation" happens in the 'var options' section so ensure that the the 'apis:' is referencing the files where the annotated swagger code is.  
+```js
 // Swagger definition
 // You can set every attribute except paths and swagger
 // https://github.com/swagger-api/swagger-spec/blob/master/versions/2.0.md
@@ -28,7 +28,7 @@ var swaggerDefinition = {
 var options = {
   // Import swaggerDefinitions
   swaggerDefinition: swaggerDefinition,
-  // Path to the API docs
+  // Path to files that contain the annotated API docs
   apis: ['./example/routes*.js', './example/parameters.yaml'],
 };
 
@@ -44,7 +44,7 @@ app.get('/api-docs.json', function(req, res) {
 
 4. Annotate routes. Here are some examples of annotated routes.
 Be sure to add "-in" type according to your request. It may be body, query or param.
-```
+```js
 /**
    * @swagger
    * /api:
@@ -207,3 +207,7 @@ $ npm install
 $ npm start
 visit localhost:3000/api-docs.json to view the spec
 ```
+
+#### References
+https://github.com/Surnet/swagger-jsdoc/blob/master/docs/GETTING-STARTED.md
+http://swaggerhub.com/wp-content/uploads/2017/02/Documenting-An-Existing-API-with-Swagger-2.pdf
