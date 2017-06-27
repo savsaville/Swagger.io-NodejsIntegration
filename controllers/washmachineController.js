@@ -11,13 +11,6 @@ Washmachine.find()
   })
 };
 
-// exports.getApiWashmachines = (req, res) => {
-// Washmachine.find()
-//   .then((washmachines) => {
-//     res.json(washmachines)
-//   })
-// };
-
 exports.createWashmachines = (req, res) => {
 const machineName = req.body.washmachine_machineName;
 const cycles = req.body.washmachine_cycles;
@@ -72,13 +65,7 @@ exports.updateApiWashmachines = (req, res) => {
       })
 }
 
-exports.deleteWashmachines = (req, res) => {
-	Washmachine.findByIdAndRemove({_id: req.params.id},
-	   function(err){
-		if(err) res.json(err);
-		else    res.redirect('/');
-	});
-};
+
 
 exports.deleteWashmachineApi = function(req, res){
 	Washmachine.findByIdAndRemove({_id: req.params.id},

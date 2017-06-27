@@ -3,6 +3,7 @@ var router = express.Router();
 const Washmachine = require('../models/Washmachine');
 const washmachineController = require('../controllers/washmachineController');
 
+router.get('/', washmachineController.getWashmachines);
 
 /**
    * @swagger
@@ -171,7 +172,7 @@ router.post('/washmachines/:id/edit', washmachineController.updateWashmachines);
 router.post('/api/:id/edit', washmachineController.updateApiWashmachines);
 
 
-router.get('/washmachine/:id/delete', washmachineController.deleteWashmachines);
+// router.get('/washmachine/:id/delete', washmachineController.deleteWashmachines);
 
 
 
