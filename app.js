@@ -18,7 +18,7 @@ const mlabpassword = process.env.WASHYPASSWORD
 var mongoose = require('mongoose');
 // mongoose.Promise = global.Promise;
 // database is called washywashy
-mongoose.connect(`mongodb://nickbibby:${mlabpassword}@ds157631.mlab.com:57631/washywashywashy`)
+mongoose.connect(`mongodb://nickbibby:bibbler69@ds157631.mlab.com:57631/washywashywashy`)
 
 const { connection: db } = mongoose;
 
