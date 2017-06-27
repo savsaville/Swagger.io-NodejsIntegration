@@ -10,7 +10,7 @@ router.get('/', washmachineController.getWashmachines);
    * /api:
    *   get:
    *     tags: [washmachine]
-   *     description: Lists washingmachines
+   *     description: Lists WASHINGMACHINES
    *     responses:
    *       200:
    *         description: You can see the machines
