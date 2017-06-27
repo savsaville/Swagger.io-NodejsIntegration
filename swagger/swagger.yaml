@@ -4,7 +4,7 @@ info:
   description: "A sample Washy Washy"
   version: "1.0.0"
   title: "WashyWashy"
-host: "localhost:3000"
+host: "swagger-washy.herokuapp.com"
 basePath: "/"
 tags:
 - name: "washmachine"
