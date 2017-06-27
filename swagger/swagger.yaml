@@ -14,7 +14,7 @@ paths:
     get:
       tags:
       - "washmachine"
-      description: "Lists washingmachines"
+      description: "Lists WA$$$$HINGMACHINES"
       parameters: []
       responses:
         200:
