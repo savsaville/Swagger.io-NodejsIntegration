@@ -51,7 +51,7 @@ var swaggerDefinition = {
     version: '1.0.0', // Version (required)
     description: 'A sample Washy Washy', // Description (optional)
   },
-  host: 'localhost:3000', // Host (optional)
+  host: 'swagger-washy.herokuapp.com', // Host (optional)
   basePath: '/', // Base path (optional)
 };
 
