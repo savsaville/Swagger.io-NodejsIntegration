@@ -1,0 +1,106 @@
+---
+swagger: "2.0"
+info:
+  description: "A sample Washy Washy"
+  version: "1.0.0"
+  title: "WashyWashy"
+host: "swagger-washy.herokuapp.com"
+basePath: "/"
+tags:
+- name: "washmachine"
+  description: "Washmachine Database"
+paths:
+  /api:
+    get:
+      tags:
+      - "washmachine"
+      description: "Lists washingmachines"
+      parameters: []
+      responses:
+        200:
+          description: "You can see the machines"
+    post:
+      tags:
+      - "washmachine"
+      description: "add washmachine to db"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "machineName"
+        in: "query"
+        description: "name of machine"
+        required: true
+        type: "string"
+      - name: "size"
+        in: "query"
+        description: "size of machine"
+        required: false
+        type: "string"
+      - name: "cycles"
+        in: "query"
+        description: "number of cycles per day"
+        required: false
+        type: "integer"
+        format: "int64"
+      - name: "powerConsumption"
+        in: "query"
+        description: "Power consumption per day"
+        required: false
+        type: "integer"
+        format: "int64"
+      - name: "location"
+        in: "query"
+        description: "location of laundromat"
+        required: false
+        type: "string"
+      - name: "createdAt"
+        in: "query"
+        description: "time of information added"
+        required: false
+        type: "string"
+        format: "date"
+      responses:
+        200:
+          description: "Successfully added Machine"
+          schema:
+            $ref: "#/definitions/washmachine"
+  /api/washmachines/{id}:
+    delete:
+      tags:
+      - "washmachine"
+      description: "Deletes a machine"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Deleted Machine"
+        400:
+          description: "Invalid Error"
+securityDefinitions: {}
+definitions:
+  washmachine:
+    required:
+    - "machineName"
+    properties:
+      machineName:
+        type: "string"
+      size:
+        type: "string"
+      cycles:
+        type: "integer"
+        format: "int64"
+      location:
+        type: "string"
+      powerConsumption:
+        type: "integer"
+        format: "int64"
+      createdAt:
+        type: "string"
+        format: "date"
+parameters: {}
+responses: {}
